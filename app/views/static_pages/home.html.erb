@@ -1,4 +1,11 @@
 <% provide(:title, "Home") %>
 
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="jumbotron">
+  <h1>Welcome to the Dev Diary</h1>
+
+  <h2>
+    Create your own blog!
+  </h2>
+
+  <%= link_to '<button>Sign up now!</button>'.html_safe, signup_path %>
+</div>

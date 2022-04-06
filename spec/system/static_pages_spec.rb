@@ -9,7 +9,7 @@ RSpec.describe "StaticPages", type: :system do
     visit root_path
 
     expect(page).to have_title full_title("Home")
-    expect(page).to have_content "Find me in app/views/static_pages/home.html.erb"
+    expect(page).to have_content "Welcome to the Dev Diary"
   end
 
   scenario "you can visit about page" do
