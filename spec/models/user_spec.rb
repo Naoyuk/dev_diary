@@ -31,8 +31,10 @@ RSpec.describe User, type: :model do
   end
 
   it "is invalid with a duplicated email" do
-    user = User.create(name: "test", email: "user1@example.com")
-    duplicated_email_user = User.new(name: "test", email: "user1@example.com")
+    user = User.create(name: "test", email: "user1@example.com",
+                      password: "password", password_confirmation: "password")
+    duplicated_email_user = User.new(name: "test", email: "user1@example.com",
+                                    password: "password", password_confirmation: "password")
     
     duplicated_email_user.valid?
     expect(duplicated_email_user.errors[:email]).to include("has already been taken")
@@ -61,5 +63,22 @@ RSpec.describe User, type: :model do
     @user.email = mixed_case_email
     @user.save
     expect(@user.reload.email).to eq mixed_case_email.downcase
+  end
+
+  it "is valid with more than 6 characters password" do
+    @user.password = @user.password_confirmation = "a" * 6
+    expect(@user).to be_valid
+  end
+
+  it "is invalid with less than 6 characters password" do
+    @user.password = @user.password_confirmation = "a" * 5
+    @user.valid?
+    expect(@user.errors[:password]).to include("is too short (minimum is 6 characters)")
+  end
+
+  it "is invalid with blank password" do
+    @user.password = @user.password_confirmation = " " * 6
+    @user.valid?
+    expect(@user.errors[:password]).to include("can't be blank")
   end
 end
