@@ -74,15 +74,15 @@ RSpec.describe "UserSignups", type: :system do
     expect(page).to have_content "Password is too short (minimum is 6 characters)"
   end
 
-  # it "is valid with correct informations" do
-  #   visit signup_path
-  #   fill_in "Name", with: "test"
-  #   fill_in "Email", with: "test@example.com"
-  #   fill_in "Password", with: "password"
-  #   fill_in "Confirmation", with: "password"
-  #   click_button "Save Change"
+  it "is valid with correct informations" do
+    visit signup_path
+    fill_in "Name", with: "test"
+    fill_in "Email", with: "test@example.com"
+    fill_in "Password", with: "password"
+    fill_in "Confirmation", with: "password"
+    click_button "Save Change"
 
-  #   expect(page).to have_content "Welcome to DevDiary!"
-  # end
+    expect(page).to have_content "Welcome to DevDiary!"
+  end
 
 end
