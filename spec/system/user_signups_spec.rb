@@ -77,7 +77,7 @@ RSpec.describe "UserSignups", type: :system do
   it "is valid with correct informations" do
     visit signup_path
     fill_in "Name", with: "test"
-    fill_in "Email", with: "test@example.com"
+    fill_in "Email", with: "testemail@example.com"
     fill_in "Password", with: "password"
     fill_in "Confirmation", with: "password"
     click_button "Save Change"
