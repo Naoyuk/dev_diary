@@ -37,4 +37,24 @@ RSpec.describe "UserLogins", type: :system do
     expect(page).to have_content "Log out"
     expect(page).not_to have_content "Log in"
   end
+
+  describe "Remember me check box" do
+    before do
+      @user = FactoryBot.create(:user)
+    end
+
+    context "when user checks the Remember me checkbox" do
+      it "stores the remember_token in the cookie" do
+        log_in_as(@user)
+        expect(cookies[:remember_token]).not_to eq nil
+      end
+    end
+
+    context "when user doesn't check the Remember me checkbox" do
+      it "doesn't store the remember_token in the cookies" do
+        log_in_as(@user, remember_me: "0")
+        expect(cookies[:remember_token]).to eq nil
+      end
+    end
+  end
 end
