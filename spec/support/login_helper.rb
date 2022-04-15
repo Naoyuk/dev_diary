@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LoginHelpers
   def is_logged_in?
     !session[:user_id].nil?
@@ -7,7 +9,7 @@ module LoginHelpers
     post login_path, params: { session: {
       email: user.email,
       password: user.password,
-      remember_me: remember_me,
+      remember_me:
     } }
   end
 end

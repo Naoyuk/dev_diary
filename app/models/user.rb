@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Userインスタンスと記憶トークンを紐付けるための仮想属性
   attr_accessor :remember_token
@@ -12,29 +14,32 @@ class User < ApplicationRecord
                    length: { maximum: 50 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence:   true,
+  validates :email, presence: true,
                     length: { maximum: 255 },
-                    format:     { with: VALID_EMAIL_REGEX },
+                    format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
   validates :password, presence: true,
                        length: { minimum: 6 }
   validates :password_confirmation, presence: true,
-                       length: { minimum: 6 }
+                                    length: { minimum: 6 }
 
   # Secure password
   has_secure_password
 
   # User class methods
   # 渡された文字列のハッシュ値を返す
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+  def self.digest(string)
+    cost = if ActiveModel::SecurePassword.min_cost
+             BCrypt::Engine::MIN_COST
+           else
+             BCrypt::Engine.cost
+           end
+    BCrypt::Password.create(string, cost:)
   end
 
   # ランダムなトークンを返す
-  def User.new_token
+  def self.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -58,7 +63,7 @@ class User < ApplicationRecord
   # methods
   private
 
-    def downcase_email
-      email.downcase!
-    end
+  def downcase_email
+    email.downcase!
+  end
 end
