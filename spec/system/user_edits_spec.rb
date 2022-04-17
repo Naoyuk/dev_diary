@@ -8,6 +8,8 @@ RSpec.describe "UserEdits", type: :system do
 
   it "requires to be logged in" do
     visit edit_user_path(@user)
+    expect(render_template(login_url)).to be_truthy
+    expect(page).to have_content 'Please log in'
     expect(page).not_to have_content 'Name'
     expect(page).not_to have_content 'Confirmation'
   end
@@ -15,6 +17,7 @@ RSpec.describe "UserEdits", type: :system do
   it "is invalid with no informations" do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: ''
     fill_in 'Email', with: ''
     fill_in 'Password', with: ''
@@ -30,6 +33,7 @@ RSpec.describe "UserEdits", type: :system do
   it "is invalid with a too long name" do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: 'a' * 51
     fill_in 'Email', with: 'test@example.com'
     fill_in 'Password', with: 'password'
@@ -42,6 +46,7 @@ RSpec.describe "UserEdits", type: :system do
   it "is invalid with a too long email" do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: 'test'
     fill_in 'Email', with: "#{'a' * 244}@example.com"
     fill_in 'Password', with: 'password'
@@ -54,6 +59,7 @@ RSpec.describe "UserEdits", type: :system do
   it "is invalid with an invalid email address" do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: 'test'
     fill_in 'Email', with: 'invalid@email@address.com'
     fill_in 'Password', with: 'password'
@@ -66,6 +72,7 @@ RSpec.describe "UserEdits", type: :system do
   it 'is invalid with differ between Password and Confirmation' do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: 'test'
     fill_in 'Email', with: 'test@example.com'
     fill_in 'Password', with: 'password'
@@ -78,6 +85,7 @@ RSpec.describe "UserEdits", type: :system do
   it 'is invalid with too short password' do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     fill_in 'Name', with: 'test'
     fill_in 'Email', with: 'test@example.com'
     fill_in 'Password', with: 'pass'
@@ -90,6 +98,7 @@ RSpec.describe "UserEdits", type: :system do
   it 'is valid with correct informations' do
     login_as(@user)
     visit edit_user_path(@user)
+    expect(render_template(edit_user_url(@user))).to be_truthy
     name = 'new_name'
     email = 'new_email@example.com'
     fill_in 'Name', with: name
