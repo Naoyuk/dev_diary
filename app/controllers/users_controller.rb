@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: %i[edit update]
+  before_action :correct_user, only: %i[edit update]
 
   def show
     @user = User.find(params[:id])
@@ -48,5 +49,10 @@ class UsersController < ApplicationController
       flash[:danger] = 'Please log in'
       redirect_to login_url
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(login_url) unless @user == current_user
   end
 end

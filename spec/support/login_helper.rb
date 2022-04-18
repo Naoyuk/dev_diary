@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module LoginHelpers
+module LoginHelper
   def is_logged_in?
     !session[:user_id].nil?
   end
@@ -12,4 +12,8 @@ module LoginHelpers
       remember_me: remember_me
     } }
   end
+end
+
+RSpec.configure do |config|
+  config.include LoginHelper
 end

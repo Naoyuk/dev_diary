@@ -66,7 +66,4 @@ RSpec.configure do |config|
 
   # RSpecでApplicationHelperを使えるようにする
   include ApplicationHelper
-
-  # Including TestHelpers
-  config.include LoginHelpers
 end
