@@ -14,6 +14,8 @@ gem 'redis', '~> 4.0'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'kaminari'
+gem 'faker'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
