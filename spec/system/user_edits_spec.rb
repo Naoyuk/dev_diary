@@ -18,9 +18,9 @@ RSpec.describe 'UserEdits', type: :system do
   end
 
   context 'correct user' do
-     before do
-       login_as(@user)
-     end
+    before do
+      login_as(@user)
+    end
 
     it 'is invalid with no informations' do
       visit edit_user_path(@user)
@@ -121,5 +121,14 @@ RSpec.describe 'UserEdits', type: :system do
       visit edit_user_path(@user)
       expect(page).not_to have_content 'Welcome to the Dev Diary'
     end
+  end
+
+  scenario 'friendly forwarding when user tried to go profile page before logging in' do
+    visit edit_user_url(@user)
+    expect(render_template(login_url)).to be_truthy
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    click_button 'Log in'
+    expect(page).to have_content 'Update your profile'
   end
 end
