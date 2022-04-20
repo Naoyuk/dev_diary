@@ -1,0 +1,11 @@
+<%= provide(:title, @blog.title) %>
+<h1><%= @blog.title %></h1>
+
+<div class="article">
+  <div class="article-header">
+    <p>Created at: <%= @blog.created_at %> Latest updated at: <%= @blog.updated_at %></p>
+  </div>
+  <div class="article-body">
+    <%= @blog.body %>
+  </div>
+</div>

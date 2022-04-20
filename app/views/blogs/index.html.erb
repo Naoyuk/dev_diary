@@ -1,0 +1,11 @@
+<% provide(:title, "All articles") %>
+<h1>All articles</h1>
+
+<%= paginate @blogs %>
+
+<ul>
+  <%= render @blogs %>
+</ul>
+
+<%= paginate @blogs %>
+

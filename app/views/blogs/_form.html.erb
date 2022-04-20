@@ -1,0 +1,14 @@
+<%= form_with(model: @blog, data: { turbo: false }) do |f| %>
+  <div class="auth-form">
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="auth-form">
+    <%= f.text_area :body, cols: 20, rows: 40 %>
+  </div>
+
+  <div class="auth-form">
+    <%= f.submit 'Publish' %>
+  </div>
+<% end %>
+
