@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :blogs
+  resources :posts
   get 'new/create'
   get 'new/destroy'
   root 'static_pages#home'

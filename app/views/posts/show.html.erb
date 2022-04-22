@@ -1,0 +1,11 @@
+<%= provide(:title, @post.title) %>
+<h1><%= @post.title %></h1>
+
+<div class="article">
+  <div class="article-header">
+    <p>Created at: <%= @post.created_at %> Latest updated at: <%= @post.updated_at %></p>
+  </div>
+  <div class="article-body">
+    <%= @post.body %>
+  </div>
+</div>

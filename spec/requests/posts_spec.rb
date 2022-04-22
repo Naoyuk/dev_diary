@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe 'Blogs', type: :request do
+RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     it 'returns http success' do
-      get blogs_path
+      get posts_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /show' do
     before do
-      @blog = FactoryBot.create(:blog)
+      @post = FactoryBot.create(:post)
     end
 
     it 'returns http success' do
-      get blog_path(@blog)
+      get post_path(@post)
       expect(response).to have_http_status(:success)
     end
   end
@@ -25,14 +25,14 @@ RSpec.describe 'Blogs', type: :request do
     end
 
     it 'redirect to log in page without logging in' do
-      get new_blog_path
+      get new_post_path
       expect(response).to redirect_to login_url
     end
 
     it 'returns http success with logging in' do
       post login_path, params: { session: { email: @user.email,
                                             password: @user.password } }
-      get new_blog_path
+      get new_post_path
       expect(response).to have_http_status(:success)
     end
   end
@@ -43,19 +43,19 @@ RSpec.describe 'Blogs', type: :request do
     end
 
     it 'redirect to log in page without logging in' do
-      post blogs_path, params: { blog: { title: 'new title',
+      post posts_path, params: { post: { title: 'new title',
                                         body: 'new article body' } }
       expect(response).to redirect_to login_url
     end
 
-    it 'creates a new blog post with logging in' do
+    it 'creates a new post post with logging in' do
       post login_path, params: { session: { email: @user.email,
                                             password: @user.password } }
       expect {
-        post blogs_path, params: { blog: { title: 'new title',
+        post posts_path, params: { post: { title: 'new title',
                                           body: 'new article body' } }
-      }.to change(Blog, :count).by(1)
-      expect(response).to redirect_to blogs_url
+      }.to change(Post, :count).by(1)
+      expect(response).to redirect_to posts_url
     end
   end
 end
