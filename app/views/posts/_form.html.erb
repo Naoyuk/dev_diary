@@ -8,7 +8,16 @@
   </div>
 
   <div class="auth-form">
-    <%= f.submit 'Publish' %>
+    <% if @post.published == true %>
+      <%= f.submit 'Update' %>
+    <% else %>
+      <%= f.submit 'Publish', name: 'publish' %>
+      <% if @post.id.nil? %>
+        <%= f.submit 'Save as draft', name: 'save_as_draft' %>
+      <% else %>
+        <%= f.submit 'Update draft', name: 'update_draft' %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 

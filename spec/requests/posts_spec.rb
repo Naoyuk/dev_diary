@@ -9,13 +9,16 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET /show' do
-    before do
-      @post = FactoryBot.create(:post)
-    end
-
-    it 'returns http success' do
+    it 'returns http success if the post has published' do
+      @post = FactoryBot.create(:post, published: true)
       get post_path(@post)
       expect(response).to have_http_status(:success)
+    end
+
+    it 'returns http redirect if the post has not published' do
+      @post = FactoryBot.create(:post, published: false)
+      get post_path(@post)
+      expect(response).to have_http_status(:redirect)
     end
   end
 

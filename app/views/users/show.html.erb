@@ -2,10 +2,13 @@
   <dt>プロフィール</dt>
   <dd><%= @user.name %></dd>
   <dt>ブログ投稿数</dt>
-  <dd>107 記事</dd>
-  <dt>ブログ投稿日数</dt>
-  <dd>125 日</dd>
+  <dd><%= pluralize(current_user.posts.count, "Entry") %></dd>
 </dl>
+
 <div>
   <%= link_to 'Edit', edit_user_path(@user) %>
+</div>
+
+<div class="entries">
+  <%= render 'entry' %>
 </div>

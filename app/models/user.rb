@@ -5,6 +5,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   # Associations
+  has_many :posts
 
   # Callback
   before_save :downcase_email
@@ -58,6 +59,11 @@ class User < ApplicationRecord
   # ログイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Profileページで表示するための記事の一覧
+  def entry
+    posts
   end
 
   # methods
