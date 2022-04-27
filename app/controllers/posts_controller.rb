@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     if params[:publish]
       @post.published = true
     end
-    if @post.update
+    if @post.update(post_params)
       flash[:success] = 'Post was updated!'
       redirect_to posts_url
     else
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     def published_post
       post = Post.find_by(id: params[:id])
       if !is_published?(post)
-        if !(logged_in? && (post.user_id != current_user.id))
+        if !logged_in? || (post.user_id != current_user.id)
           flash[:danger] = 'Not found'
           redirect_to root_url
         end

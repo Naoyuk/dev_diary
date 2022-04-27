@@ -20,6 +20,15 @@ RSpec.describe 'Posts', type: :request do
       get post_path(@post)
       expect(response).to have_http_status(:redirect)
     end
+
+    it 'returns http success if owner requests the post has not published' do
+      post = FactoryBot.create(:post, published: false)
+      user = post.user
+      post login_path, params: { session: { email: user.email,
+                                            password: user.password } }
+      get post_path(post)
+      expect(response).to have_http_status(:success)
+    end
   end
 
   describe 'GET /new' do

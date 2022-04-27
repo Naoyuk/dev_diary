@@ -3,7 +3,10 @@
 
 <div class="article">
   <div class="article-header">
-    <p>Created at: <%= @post.created_at %> Latest updated at: <%= @post.updated_at %></p>
+    <p>Created at: <%= @post.created_at %><br>Latest updated at: <%= @post.updated_at %></p>
+  </div>
+  <div class='edit-post'>
+    <%= link_to 'Edit', edit_post_path(@post) %>
   </div>
   <div class="article-body">
     <%= @post.body %>
