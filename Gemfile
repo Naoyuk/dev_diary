@@ -16,6 +16,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'kaminari'
 gem 'faker'
+gem 'redcarpet'
+gem 'rouge'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
