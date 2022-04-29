@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
@@ -22,7 +24,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'is invalid without body' do
-    post = FactoryBot.build(:post, body:nil)
+    post = FactoryBot.build(:post, body: nil)
     post.valid?
     expect(post.errors[:body]).to include("can't be blank")
   end

@@ -5,19 +5,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'faker'
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'kaminari'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
+gem 'redcarpet'
 gem 'redis', '~> 4.0'
+gem 'rouge'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'kaminari'
-gem 'faker'
-gem 'redcarpet'
-gem 'rouge'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

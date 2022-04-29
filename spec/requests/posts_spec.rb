@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
@@ -56,17 +58,17 @@ RSpec.describe 'Posts', type: :request do
 
     it 'redirect to log in page without logging in' do
       post posts_path, params: { post: { title: 'new title',
-                                        body: 'new article body' } }
+                                         body: 'new article body' } }
       expect(response).to redirect_to login_url
     end
 
     it 'creates a new post post with logging in' do
       post login_path, params: { session: { email: @user.email,
                                             password: @user.password } }
-      expect {
+      expect do
         post posts_path, params: { post: { title: 'new title',
-                                          body: 'new article body' } }
-      }.to change(Post, :count).by(1)
+                                           body: 'new article body' } }
+      end.to change(Post, :count).by(1)
       expect(response).to redirect_to posts_url
     end
   end

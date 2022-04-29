@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # frozen_string_literal
 
 module PostsHelper
@@ -36,7 +38,7 @@ module PostsHelper
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
 
-  def is_published?(post)
+  def published?(post)
     post.published
   end
 end

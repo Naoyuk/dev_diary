@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "PostPublisheds", type: :system do
+RSpec.describe 'PostPublisheds', type: :system do
   before do
     driven_by(:rack_test)
     @user = FactoryBot.create(:user)

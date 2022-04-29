@@ -10,9 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if logged_in?
-      @entries = current_user.entry.page params[:page]
-    end
+    @entries = current_user.entry.page params[:page] if logged_in?
   end
 
   def new
@@ -52,11 +50,11 @@ class UsersController < ApplicationController
   end
 
   def logged_in_user
-    unless logged_in?
-      store_url
-      flash[:danger] = 'Please log in'
-      redirect_to login_url
-    end
+    return if logged_in?
+
+    store_url
+    flash[:danger] = 'Please log in'
+    redirect_to login_url
   end
 
   def correct_user
