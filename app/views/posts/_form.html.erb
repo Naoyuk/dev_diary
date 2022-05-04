@@ -4,9 +4,10 @@
   </div>
 
   <div class="auth-form">
-    <%= f.text_area :body, style: "width: 100%",
-                            rows: 12, maxlength: 5000,
-                            placeholder: 'Write something in markdown format' %>
+    <%= f.text_area :body, id: "post_body",
+                           style: "width: 100%",
+                           rows: 12, maxlength: 5000,
+                           placeholder: 'Write something in markdown format' %>
   </div>
 
   <div class="auth-form">

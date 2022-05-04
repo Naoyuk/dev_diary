@@ -1,0 +1,9 @@
+<% provide(:title, "Add image") %>
+
+<h1>Add image</h1>
+
+<%= form_with(model: @picture, data: { turbo: false }) do |f| %>
+  <%= f.label :photo %>
+  <%= f.file_field :photo, accept: 'image/*' %>
+  <%= f.submit 'Upload' %>
+<% end %>

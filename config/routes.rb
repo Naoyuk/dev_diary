@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :pictures
+  resources :images
   resources :posts
   get 'new/create'
   get 'new/destroy'
