@@ -5,11 +5,8 @@
 <script>
     function copyUrl(url){
         let head_of_file_name_pos = url.lastIndexOf('/') + 1;
-        console.log(head_of_file_name_pos);
         let alt = url.substring(head_of_file_name_pos);
-        console.log(alt);
         let markdown_syntax = "![" + alt + "](" + url + ")";
-        console.log(markdown_syntax);
         navigator.clipboard.writeText(markdown_syntax);
     }
 </script>
