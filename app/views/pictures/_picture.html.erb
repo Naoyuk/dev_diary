@@ -1,3 +1,3 @@
-<li>
-  <%= image_tag picture.photo_url %>
+<li id="<%= dom_id picture %>">
+  <%= image_tag picture.photo_url, class: 'select-picture', onclick: "copyUrl('#{picture.photo_url}')" %>
 </li>

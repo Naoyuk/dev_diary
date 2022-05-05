@@ -15,3 +15,10 @@ header h1 a:visited {
   }
 }
 
+.select-picture:hover {
+  opacity: 0.7;
+}
+
+.select-picture:active {
+  opacity: 0.4;
+}
