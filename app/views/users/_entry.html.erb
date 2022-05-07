@@ -1,13 +1,13 @@
 <% if @entries.any? %>
   <% @entries.each do |entry| %>
-    <div class="entries">
+    <div class="article">
       <h2><%= link_to entry.title, entry %></h2>
       <div class="date_time">
         Created at: <%= entry.created_at %><br>
         Updated at: <%= entry.updated_at %>
       </div>
       <div class="entry_body">
-        <%= entry.body %>
+        <%= entry.body.truncate(200) %>
       </div>
     </div>
   <% end %>

@@ -36,6 +36,11 @@ footer {
   opacity: 0.4;
 }
 
+/* Global style */
+li {
+  list-style: none;
+}
+
 /* Article */
 .container {
   padding: 20px 10px;
@@ -43,8 +48,20 @@ footer {
 }
 
 .article {
+  margin-bottom: 50px;
   padding: 50px 80px;
   background-color: #fff;
+
+  h2 {
+    padding: 0.25em 0.5em;
+    color: #494949;
+    background: transparent;
+    border-left: 5px solid #7db4e6;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 /* Code block */

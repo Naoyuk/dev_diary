@@ -1,4 +1,6 @@
-<li>
-  <%= link_to post.title, post %>
+<li class='article'>
+  <%#= link_to post.title, post %>
+  <h2><%= link_to post.title, post %></h2>
+  <%= markdown(post.body) %>
 </li>
 
