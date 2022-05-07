@@ -5,9 +5,13 @@
   <div class="article-header">
     <p>Created at: <%= @post.created_at %><br>Latest updated at: <%= @post.updated_at %></p>
   </div>
-  <div class='edit-post'>
-    <%= link_to 'Edit', edit_post_path(@post) %>
-  </div>
+
+  <% if logged_in? && @post.user_id == current_user.id %>
+    <div class='edit-post'>
+      <%= link_to 'Edit', edit_post_path(@post) %>
+    </div>
+  <% end %>
+
   <div class="article-body">
     <%= markdown(@post.body) %>
   </div>

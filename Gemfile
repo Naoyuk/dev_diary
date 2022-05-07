@@ -14,6 +14,11 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 gem 'redcarpet'
 gem 'redis', '~> 4.0'
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootsnap', require: false
+gem 'image_processing', '~> 1.2'
+gem 'sassc-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rouge'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
@@ -24,12 +29,6 @@ gem 'fog-aws'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
-
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', require: false
-gem 'image_processing', '~> 1.2'
-gem 'sassc-rails'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -54,3 +53,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "bootstrap", "~> 5.1"

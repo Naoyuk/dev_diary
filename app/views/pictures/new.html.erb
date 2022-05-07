@@ -3,7 +3,15 @@
 <h1>Add image</h1>
 
 <%= form_with(model: @picture, data: { turbo: false }) do |f| %>
-  <%= f.label :photo %>
-  <%= f.file_field :photo, accept: 'image/*' %>
-  <%= f.submit 'Upload' %>
+  <div class="mb-3">
+    <%= f.label :photo, class: 'form-label' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.file_field :photo, accept: 'image/*', class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit 'Upload', class: 'btn btn-primary' %>
+  </div>
 <% end %>

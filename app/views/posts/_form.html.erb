@@ -1,24 +1,26 @@
 <%= form_with(model: @post, data: { turbo: false }) do |f| %>
-  <div class="auth-form">
-    <%= f.text_field :title %>
+  <div class="mb-3">
+    <%= f.label :title, class: 'form-label' %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="auth-form">
+  <div class="mb-3">
     <%= f.text_area :body, id: "post_body",
+                           class: "form-control",
                            style: "width: 100%",
                            rows: 12, maxlength: 5000,
                            placeholder: 'Write something in markdown format' %>
   </div>
 
-  <div class="auth-form">
+  <div class="mb-3">
     <% if @post.published == true %>
-      <%= f.submit 'Update' %>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
     <% else %>
-      <%= f.submit 'Publish', name: 'publish' %>
+      <%= f.submit 'Publish', name: 'publish', class: 'btn btn-primary' %>
       <% if @post.id.nil? %>
-        <%= f.submit 'Save as draft', name: 'save_as_draft' %>
+        <%= f.submit 'Save as draft', name: 'save_as_draft', class: 'btn btn-primary' %>
       <% else %>
-        <%= f.submit 'Update draft', name: 'update_draft' %>
+        <%= f.submit 'Update draft', name: 'update_draft', class: 'btn btn-primary' %>
       <% end %>
     <% end %>
   </div>

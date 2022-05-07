@@ -1,10 +1,11 @@
 <% provide(:title, "All posts") %>
 
-<%= paginate @posts %>
+<div class="row">
+  <%= paginate @posts %>
 
-<ul>
-  <%= render @posts %>
-</ul>
+  <ul>
+    <%= render @posts %>
+  </ul>
 
-<%= paginate @posts %>
-
+  <%= paginate @posts %>
+</div>

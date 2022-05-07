@@ -1,27 +1,29 @@
-<%= form_with(model: @user, data: { turbo: false }) do |f| %>
-  <%= render 'shared/error_messages' %>
+<div class="row">
+  <%= form_with(model: @user, data: { turbo: false }) do |f| %>
+    <%= render 'shared/error_messages' %>
 
-  <div class="auth-form">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+    <div class="col-md-6 offset-md-3">
+      <%= f.label :name, class: 'form-label' %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="auth-form">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+    <div class="col-md-6 offset-md-3">
+      <%= f.label :email, class: 'form-label' %><br>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
 
-  <div class="auth-form">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
+    <div class="col-md-6 offset-md-3">
+      <%= f.label :password, class: 'form-label' %><br>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
 
-  <div class="auth-form">
-    <%= f.label :password_confirmation, "Confirmation" %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+    <div class="col-md-6 offset-md-3">
+      <%= f.label :password_confirmation, "Confirmation", class: 'form-label' %><br>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
 
-  <div class="auth-form">
-    <%= f.submit yield(:button_text) %>
-  </div>
-<% end %>
+    <div class="col-md-6 offset-md-3">
+      <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

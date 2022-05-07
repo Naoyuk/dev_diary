@@ -1,14 +1,20 @@
-<dl>
-  <dt>プロフィール</dt>
-  <dd><%= @user.name %></dd>
-  <dt>ブログ投稿数</dt>
-  <dd><%= pluralize(current_user.posts.count, "Entry") %></dd>
-</dl>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user-infor">
+      <dl>
+        <dt>プロフィール</dt>
+        <dd><%= @user.name %></dd>
+        <dt>ブログ投稿数</dt>
+        <dd><%= pluralize(current_user.posts.count, "Entry") %></dd>
+      </dl>
 
-<div>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-</div>
+      <div>
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+    </section>
+  </aside>
 
-<div class="entries">
-  <%= render 'entry' %>
+  <div class="col-md-8 entries">
+    <%= render 'entry' %>
+  </div>
 </div>
