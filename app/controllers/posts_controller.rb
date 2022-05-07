@@ -44,22 +44,22 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, :body, :published)
-    end
+  def post_params
+    params.require(:post).permit(:title, :body, :published)
+  end
 
-    def logged_in_user
-      return if logged_in?
+  def logged_in_user
+    return if logged_in?
 
-      store_url
-      flash[:danger] = 'Please log in'
-      redirect_to login_url
-    end
+    store_url
+    flash[:danger] = 'Please log in'
+    redirect_to login_url
+  end
 
-    def published_post
-      post = Post.find_by(id: params[:id])
-      (return unless !published?(post) && (!logged_in? || (post.user_id != current_user.id)))
-      flash[:danger] = 'Not found'
-      redirect_to root_url
-    end
+  def published_post
+    post = Post.find_by(id: params[:id])
+    (return unless !published?(post) && (!logged_in? || (post.user_id != current_user.id)))
+    flash[:danger] = 'Not found'
+    redirect_to root_url
+  end
 end

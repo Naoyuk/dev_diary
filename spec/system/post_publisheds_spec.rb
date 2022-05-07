@@ -76,7 +76,6 @@ RSpec.describe 'PostPublisheds', type: :system do
       fill_in 'post[body]', with: 'test title'
       click_button 'Save as draft'
       visit edit_post_path(Post.find_by(title: 'test title'))
-      save_and_open_page
       expect(page).to have_button 'Publish'
       expect(page).to have_button 'Update draft'
     end
@@ -87,7 +86,6 @@ RSpec.describe 'PostPublisheds', type: :system do
       fill_in 'post[body]', with: 'test title'
       click_button 'Publish'
       visit edit_post_path(Post.find_by(title: 'test title'))
-      save_and_open_page
       expect(page).to have_button 'Update'
       expect(page).not_to have_button 'Publish'
       expect(page).not_to have_button 'Save as draft'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PicturesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -20,7 +22,7 @@ class PicturesController < ApplicationController
 
   private
 
-    def picture_params
-      params.require(:picture).permit(:photo)
-    end
+  def picture_params
+    params.require(:picture).permit(:photo)
+  end
 end

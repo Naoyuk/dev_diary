@@ -5,27 +5,27 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootsnap', require: false
+gem 'carrierwave'
 gem 'faker'
+gem 'fog-aws'
+gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'kaminari'
+gem 'mini_magick'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 gem 'redcarpet'
 gem 'redis', '~> 4.0'
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', require: false
-gem 'image_processing', '~> 1.2'
-gem 'sassc-rails'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rouge'
+gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog-aws'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -54,4 +54,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "bootstrap", "~> 5.1"
+gem 'bootstrap', '~> 5.1'
