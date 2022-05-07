@@ -1,3 +1,7 @@
+.wrapper {
+  background-color: #fafbfc;
+}
+
 header h1 a,
 header h1 a:visited {
   color: #212121;
@@ -30,4 +34,33 @@ footer {
 
 .select-picture:active {
   opacity: 0.4;
+}
+
+/* Article */
+.container {
+  padding: 20px 10px;
+  background-color: #fafbfc;
+}
+
+.article {
+  padding: 50px 80px;
+  background-color: #fff;
+}
+
+/* Code block */
+.highlight {
+  border-radius: 5px;
+
+  pre {
+    padding: 10px;
+  }
+}
+
+/* Inline code */
+.article-body p code {
+  margin: 0 0.1em;
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, .08);
+  background-color: rgba(0, 0, 0, .03);
 }
