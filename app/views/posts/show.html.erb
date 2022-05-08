@@ -1,9 +1,10 @@
 <%= provide(:title, @post.title) %>
 
 <div class="article">
-  <h1><%= @post.title %></h1>
+  <h2><%= @post.title %></h2>
   <div class="article-header">
-    <p>Created at: <%= @post.created_at %><br>Latest updated at: <%= @post.updated_at %></p>
+    <p>Created at: <%= formatted_date(@post.created_at, 'show') %><br>
+    Latest updated at: <%= formatted_date(@post.updated_at, 'show') %></p>
   </div>
 
   <% if logged_in? && @post.user_id == current_user.id %>

@@ -1,6 +1,9 @@
 <li class='article'>
-  <%#= link_to post.title, post %>
   <h2><%= link_to post.title, post %></h2>
+  <div class="article-header">
+    <p>Created at: <%= formatted_date(post.created_at, 'show') %><br>
+    Latest updated at: <%= formatted_date(post.updated_at, 'show') %></p>
+  </div>
   <%= markdown(post.body) %>
 </li>
 

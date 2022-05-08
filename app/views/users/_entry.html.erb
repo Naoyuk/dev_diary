@@ -3,8 +3,8 @@
     <div class="article">
       <h2><%= link_to entry.title, entry %></h2>
       <div class="date_time">
-        Created at: <%= entry.created_at %><br>
-        Updated at: <%= entry.updated_at %>
+        Created at: <%= formatted_date(entry.created_at, 'show') %><br>
+        Updated at: <%= formatted_date(entry.updated_at, 'show') %>
       </div>
       <div class="entry_body">
         <%= entry.body.truncate(200) %>

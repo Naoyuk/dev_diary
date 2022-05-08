@@ -10,4 +10,12 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def formatted_date(date, type)
+    if date.year == Date.today.year
+      date.to_fs(:stamp_this_year)
+    else
+      type == list ? date.to_fs(:stamp_list_old) : date.to_fs(:stamp_show_old)
+    end
+  end
 end
