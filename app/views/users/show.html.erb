@@ -4,6 +4,8 @@
       <dl>
         <dt>プロフィール</dt>
         <dd><%= @user.name %></dd>
+        <dt>タイムゾーン</dt>
+        <dd><%= @user.time_zone %></dd>
         <dt>ブログ投稿数</dt>
         <dd><%= pluralize(current_user.posts.count, "Entry") %></dd>
       </dl>

@@ -19,6 +19,8 @@ module DevDiary
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = "UTC"
+    config.active_record.default_timezone = :utc
     # config.eager_load_paths << Rails.root.join("extras")
 
     # ジェネレーター実行時にRSpecのファイルも自動作成

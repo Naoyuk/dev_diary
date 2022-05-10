@@ -12,10 +12,13 @@ module ApplicationHelper
   end
 
   def formatted_date(date, type)
-    if date.year == Date.today.year
-      date.to_fs(:stamp_this_year)
+    logged_in? ? zone = current_user.time_zone : 'UTC'
+    local_time = date.in_time_zone(zone)
+
+    if local_time.year == Date.today.year
+      local_time.to_fs(:stamp_this_year)
     else
-      type == list ? date.to_fs(:stamp_list_old) : date.to_fs(:stamp_show_old)
+      type == list ? local_time.to_fs(:stamp_list_old) : local_time.to_fs(:stamp_show_old)
     end
   end
 end

@@ -13,6 +13,11 @@
     </div>
 
     <div class="col-md-6 offset-md-3">
+      <%= f.label :time_zone, class: 'form-label' %><br>
+      <%= f.select :time_zone, ActiveSupport::TimeZone.all.map{|tz| [ "(GMT#{tz.formatted_offset}) #{tz.name}", tz.tzinfo.canonical_zone.name] }, {prompt: "Elija zona horaria"}, class: 'form-control' %>
+    </div>
+
+    <div class="col-md-6 offset-md-3">
       <%= f.label :password, class: 'form-label' %><br>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
