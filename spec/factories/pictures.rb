@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :picture do
-    picture { 'MyString' }
+    sequence(:picture) { |n| "test#{n}.png" }
   end
 end

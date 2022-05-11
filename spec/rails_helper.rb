@@ -66,4 +66,5 @@ RSpec.configure do |config|
 
   # RSpecでApplicationHelperを使えるようにする
   include ApplicationHelper
+  include PostsHelper
 end
