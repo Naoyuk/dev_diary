@@ -55,3 +55,5 @@ group :test do
 end
 
 gem 'bootstrap', '~> 5.1'
+
+gem "dotenv-rails", "~> 2.7"

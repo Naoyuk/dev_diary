@@ -3,5 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @picture = FactoryBot.build(:picture)
+  end
+
+  it 'is valid with photo' do
+    p @picture.photo
+    expect(@picture).to be_valid
+  end
+
+  it 'is invalid without photo' do
+    @picture.photo = nil
+    @picture.valid?
+    expect(@picture.errors[:photo]).to include("can't be blank")
+  end
 end
