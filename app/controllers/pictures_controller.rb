@@ -2,6 +2,7 @@
 
 class PicturesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :logged_in_user, only: %i[index new create]
 
   def index
     @pictures = Picture.all
@@ -24,5 +25,13 @@ class PicturesController < ApplicationController
 
   def picture_params
     params.require(:picture).permit(:photo)
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_url
+    flash[:danger] = 'Please log in'
+    redirect_to login_url
   end
 end

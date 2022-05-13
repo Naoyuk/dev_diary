@@ -8,7 +8,6 @@ RSpec.describe Picture, type: :model do
   end
 
   it 'is valid with photo' do
-    p @picture.photo
     expect(@picture).to be_valid
   end
 
