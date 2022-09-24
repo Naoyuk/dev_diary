@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :posts
   get 'new/create'
   get 'new/destroy'
-  root 'static_pages#home'
+  root 'posts#index'
   get 'static_pages/home'
   get 'static_pages/about'
   get '/signup', to: 'users#new'
